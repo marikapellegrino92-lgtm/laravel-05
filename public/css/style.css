@@ -1,0 +1,8 @@
+.bg-custom{
+    background-image: url('/media2/sposi2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
