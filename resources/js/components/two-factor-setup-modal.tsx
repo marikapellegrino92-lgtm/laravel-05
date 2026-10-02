@@ -25,25 +25,25 @@ import { confirm } from '@/routes/two-factor';
 
 function GridScanIcon() {
     return (
-        <div className="mb-3 rounded-full border border-border bg-card p-0.5 shadow-sm">
-            <div className="relative overflow-hidden rounded-full border border-border bg-muted p-2.5">
-                <div className="absolute inset-0 grid grid-cols-5 opacity-50">
+        <div className="mb-3 border-border bg-card p-0.5 shadow-sm rounded-full border">
+            <div className="border-border bg-muted p-2.5 relative overflow-hidden rounded-full border">
+                <div className="inset-0 absolute grid grid-cols-5 opacity-50">
                     {Array.from({ length: 5 }, (_, i) => (
                         <div
                             key={`col-${i + 1}`}
-                            className="border-r border-border last:border-r-0"
+                            className="border-border border-r last:border-r-0"
                         />
                     ))}
                 </div>
-                <div className="absolute inset-0 grid grid-rows-5 opacity-50">
+                <div className="inset-0 absolute grid grid-rows-5 opacity-50">
                     {Array.from({ length: 5 }, (_, i) => (
                         <div
                             key={`row-${i + 1}`}
-                            className="border-b border-border last:border-b-0"
+                            className="border-border border-b last:border-b-0"
                         />
                     ))}
                 </div>
-                <ScanLine className="relative z-20 size-6 text-foreground" />
+                <ScanLine className="size-6 text-foreground relative z-20" />
             </div>
         </div>
     );
@@ -72,12 +72,12 @@ function TwoFactorSetupStep({
                 <AlertError errors={errors} />
             ) : (
                 <>
-                    <div className="mx-auto flex max-w-md overflow-hidden">
-                        <div className="mx-auto aspect-square w-64 rounded-lg border border-border">
-                            <div className="z-10 flex h-full w-full items-center justify-center p-5">
+                    <div className="max-w-md mx-auto flex overflow-hidden">
+                        <div className="w-64 rounded-lg border-border mx-auto aspect-square border">
+                            <div className="p-5 z-10 flex h-full w-full items-center justify-center">
                                 {qrCodeSvg ? (
                                     <div
-                                        className="aspect-square w-full rounded-lg bg-white p-2 [&_svg]:size-full"
+                                        className="rounded-lg bg-white p-2 aspect-square w-full [&_svg]:size-full"
                                         dangerouslySetInnerHTML={{
                                             __html: qrCodeSvg,
                                         }}
@@ -95,23 +95,23 @@ function TwoFactorSetupStep({
                         </div>
                     </div>
 
-                    <div className="flex w-full space-x-5">
+                    <div className="space-x-5 flex w-full">
                         <Button className="w-full" onClick={onNextStep}>
                             {buttonText}
                         </Button>
                     </div>
 
                     <div className="relative flex w-full items-center justify-center">
-                        <div className="absolute inset-0 top-1/2 h-px w-full bg-border" />
-                        <span className="relative bg-card px-2 py-1">
+                        <div className="inset-0 bg-border absolute top-1/2 h-px w-full" />
+                        <span className="bg-card px-2 py-1 relative">
                             or, enter the code manually
                         </span>
                     </div>
 
-                    <div className="flex w-full space-x-2">
-                        <div className="flex w-full items-stretch overflow-hidden rounded-xl border border-border">
+                    <div className="space-x-2 flex w-full">
+                        <div className="rounded-xl border-border flex w-full items-stretch overflow-hidden border">
                             {!manualSetupKey ? (
-                                <div className="flex h-full w-full items-center justify-center bg-muted p-3">
+                                <div className="bg-muted p-3 flex h-full w-full items-center justify-center">
                                     <Spinner />
                                 </div>
                             ) : (
@@ -120,11 +120,11 @@ function TwoFactorSetupStep({
                                         type="text"
                                         readOnly
                                         value={manualSetupKey}
-                                        className="h-full w-full bg-background p-3 text-foreground outline-none"
+                                        className="bg-background p-3 text-foreground h-full w-full outline-none"
                                     />
                                     <button
                                         onClick={() => copy(manualSetupKey)}
-                                        className="border-l border-border px-3 hover:bg-muted"
+                                        className="border-border px-3 hover:bg-muted border-l"
                                     >
                                         <IconComponent className="w-4" />
                                     </button>
@@ -171,9 +171,9 @@ function TwoFactorVerificationStep({
                 <>
                     <div
                         ref={pinInputContainerRef}
-                        className="relative w-full space-y-3"
+                        className="space-y-3 relative w-full"
                     >
-                        <div className="flex w-full flex-col items-center space-y-3 py-2">
+                        <div className="space-y-3 py-2 flex w-full flex-col items-center">
                             <InputOTP
                                 id="otp"
                                 name="code"
@@ -202,7 +202,7 @@ function TwoFactorVerificationStep({
                             />
                         </div>
 
-                        <div className="flex w-full space-x-5">
+                        <div className="space-x-5 flex w-full">
                             <Button
                                 type="button"
                                 variant="outline"
@@ -333,7 +333,7 @@ export default function TwoFactorSetupModal({
                     </DialogDescription>
                 </DialogHeader>
 
-                <div className="flex flex-col items-center space-y-5">
+                <div className="space-y-5 flex flex-col items-center">
                     {showVerificationStep ? (
                         <TwoFactorVerificationStep
                             onClose={handleClose}

@@ -46,7 +46,7 @@ export default function Profile({
                 >
                     {({ processing, errors }) => (
                         <>
-                            <div className="grid gap-2">
+                            <div className="gap-2 grid">
                                 <Label htmlFor="name">Name</Label>
 
                                 <Input
@@ -65,7 +65,7 @@ export default function Profile({
                                 />
                             </div>
 
-                            <div className="grid gap-2">
+                            <div className="gap-2 grid">
                                 <Label htmlFor="email">Email address</Label>
 
                                 <Input
@@ -93,7 +93,7 @@ export default function Profile({
                                             <Link
                                                 href={send()}
                                                 as="button"
-                                                className="text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"
+                                                className="text-foreground decoration-neutral-300 ease-out dark:decoration-neutral-500 underline underline-offset-4 transition-colors duration-300 hover:decoration-current!"
                                             >
                                                 Click here to re-send the
                                                 verification email.
@@ -110,7 +110,7 @@ export default function Profile({
                                     </div>
                                 )}
 
-                            <div className="flex items-center gap-4">
+                            <div className="gap-4 flex items-center">
                                 <Button
                                     disabled={processing}
                                     data-test="update-profile-button"

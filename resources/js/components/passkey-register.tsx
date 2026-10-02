@@ -75,9 +75,9 @@ export default function PasskeyRegistration({ onSuccess }: Props) {
     return (
         <form
             onSubmit={handleSubmit}
-            className="space-y-4 rounded-lg border border-border bg-muted/50 p-4"
+            className="space-y-4 rounded-lg border-border bg-muted/50 p-4 border"
         >
-            <div className="grid gap-2">
+            <div className="gap-2 grid">
                 <Label htmlFor="passkey-name">Passkey name</Label>
                 <Input
                     id="passkey-name"
@@ -85,7 +85,7 @@ export default function PasskeyRegistration({ onSuccess }: Props) {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="e.g., MacBook Pro, iPhone"
-                    className="mt-1 block w-full border-foreground/20"
+                    className="mt-1 border-foreground/20 block w-full"
                     autoFocus
                 />
                 <p className="text-xs text-muted-foreground">
@@ -95,7 +95,7 @@ export default function PasskeyRegistration({ onSuccess }: Props) {
 
             {error && <InputError message={error} />}
 
-            <div className="flex gap-2">
+            <div className="gap-2 flex">
                 <Button type="submit" disabled={isLoading || !name.trim()}>
                     {isLoading ? 'Registering...' : 'Register passkey'}
                 </Button>

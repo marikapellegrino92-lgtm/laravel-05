@@ -26,18 +26,18 @@ export default function PasskeyItem({ passkey, onDelete }: Props) {
     };
 
     return (
-        <div className="flex items-center justify-between border-b p-4 last:border-b-0">
-            <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-muted">
+        <div className="p-4 flex items-center justify-between border-b last:border-b-0">
+            <div className="gap-4 flex items-center">
+                <div className="h-10 w-10 rounded-xl bg-muted flex shrink-0 items-center justify-center">
                     <KeyRound className="h-5 w-5 text-muted-foreground" />
                 </div>
                 <div className="space-y-1">
-                    <div className="flex items-center gap-2.5">
+                    <div className="gap-2.5 flex items-center">
                         <p className="font-medium tracking-tight">
                             {passkey.name}
                         </p>
                         {passkey.authenticator && (
-                            <span className="inline-flex items-center gap-1 rounded-md bg-muted px-2 py-0.5 text-[11px] font-medium tracking-wide text-muted-foreground uppercase ring-1 ring-border ring-inset">
+                            <span className="gap-1 rounded-md bg-muted px-2 py-0.5 font-medium tracking-wide text-muted-foreground ring-border inline-flex items-center text-[11px] uppercase ring-1 ring-inset">
                                 {passkey.authenticator}
                             </span>
                         )}

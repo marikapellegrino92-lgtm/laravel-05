@@ -12,7 +12,7 @@ export default function VerifyEmail({ status }: { status?: string }) {
             <Head title="Email verification" />
 
             {status === 'verification-link-sent' && (
-                <div className="mb-4 text-center text-sm font-medium text-green-600">
+                <div className="mb-4 text-sm font-medium text-green-600 text-center">
                     A new verification link has been sent to the email address
                     you provided during registration.
                 </div>
@@ -28,7 +28,7 @@ export default function VerifyEmail({ status }: { status?: string }) {
 
                         <TextLink
                             href={logout()}
-                            className="mx-auto block text-sm"
+                            className="text-sm mx-auto block"
                         >
                             Log out
                         </TextLink>

@@ -27,12 +27,12 @@ export default function Login({ status, canResetPassword }: Props) {
             <Form
                 {...store.form()}
                 resetOnSuccess={['password']}
-                className="flex flex-col gap-6"
+                className="gap-6 flex flex-col"
             >
                 {({ processing, errors }) => (
                     <>
-                        <div className="grid gap-6">
-                            <div className="grid gap-2">
+                        <div className="gap-6 grid">
+                            <div className="gap-2 grid">
                                 <Label htmlFor="email">Email address</Label>
                                 <Input
                                     id="email"
@@ -47,13 +47,13 @@ export default function Login({ status, canResetPassword }: Props) {
                                 <InputError message={errors.email} />
                             </div>
 
-                            <div className="grid gap-2">
+                            <div className="gap-2 grid">
                                 <div className="flex items-center">
                                     <Label htmlFor="password">Password</Label>
                                     {canResetPassword && (
                                         <TextLink
                                             href={request()}
-                                            className="ml-auto text-sm"
+                                            className="text-sm ml-auto"
                                             tabIndex={5}
                                         >
                                             Forgot your password?
@@ -71,7 +71,7 @@ export default function Login({ status, canResetPassword }: Props) {
                                 <InputError message={errors.password} />
                             </div>
 
-                            <div className="flex items-center space-x-3">
+                            <div className="space-x-3 flex items-center">
                                 <Checkbox
                                     id="remember"
                                     name="remember"
@@ -92,7 +92,7 @@ export default function Login({ status, canResetPassword }: Props) {
                             </Button>
                         </div>
 
-                        <div className="text-center text-sm text-muted-foreground">
+                        <div className="text-sm text-muted-foreground text-center">
                             Don't have an account?{' '}
                             <TextLink href={register()} tabIndex={5}>
                                 Sign up
@@ -103,7 +103,7 @@ export default function Login({ status, canResetPassword }: Props) {
             </Form>
 
             {status && (
-                <div className="mb-4 text-center text-sm font-medium text-green-600">
+                <div className="mb-4 text-sm font-medium text-green-600 text-center">
                     {status}
                 </div>
             )}
