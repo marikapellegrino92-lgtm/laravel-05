@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ContactMail;
 
 class PublicController extends Controller
 {
@@ -18,26 +18,23 @@ class PublicController extends Controller
         return view('contattaci');
     }
 
-   public function submit(Request $request)
-{
-    $user = $request->input('name');
-    $email = $request->input('email');
-    $message = $request->input('message');
+    public function submit(Request $request)
+    {
+        $user = $request->input('name');
+        $email = $request->input('email');
+        $message = $request->input('message');
 
-    $userData = [
-        'user' => $user,
-        'message' => $message
-    ];
+        $userData = [
+            'user' => $user,
+            'message' => $message,
+        ];
 
-    try {
-        Mail::to($email)->send(new ContactMail($userData));
+        try {
+            Mail::to($email)->send(new ContactMail($userData));
 
-        return to_route('home')->with('EmailSent', 'Grazie! Il tuo messaggio è stato inviato.');
-    } catch (\Exception $e) {
-        return to_route('home')->with('Emailerror', 'Si è verificato un errore nell\'invio del messaggio.');
+            return to_route('home')->with('EmailSent', 'Grazie! Il tuo messaggio è stato inviato.');
+        } catch (\Exception $e) {
+            return to_route('home')->with('Emailerror', 'Si è verificato un errore nell\'invio del messaggio.');
+        }
     }
 }
-
-}
-
-       
